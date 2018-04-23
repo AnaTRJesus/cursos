@@ -1,0 +1,22 @@
+<form #f="ngForm" (ngSubmit)='onSubmit(f)'>
+  <h3 class="text-center">{{ titulo | camelCase }} - {{data | date}}</h3>
+
+
+  <div class="form-group col-6 mx-auto">
+    <label for="nome">Nome</label>
+    <input #nome="ngModel" required name="nome"[(ngModel)]="curso.nome"type="text" id="nome" class="form-control" placeholder="Nome">
+  </div>
+
+  <div *ngIf="!nome.valid && nome.touched" class="alert alert-danger form-group col-6 mx-auto" role="alert">Nome é Obrigatório</div>
+
+  <div class="form-group col-6 mx-auto">
+      <label for="id-curso">ID-Curso</label>
+      <input required name="id-curso"[(ngModel)]="curso.id" type="text" id="id-curso" class="form-control" placeholder="ID do Curso">
+    </div>
+
+  <div class="form-group col-6 mx-auto">
+    <button type="submit" class="btn btn-primary">Gravar</button>
+    </div>
+  
+</form>
+
